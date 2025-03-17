@@ -131,6 +131,15 @@
     </style>
 </head>
 <body>
+    <!-- Menu d'évitement accessible avec TalkBack -->
+    <div class="fr-skiplinks" id="skip-links" aria-label="Accès rapide" role="navigation">
+        <a href="#search" onclick="document.getElementById('search').focus();" aria-label="Aller à la recherche">Aller à la recherche</a>
+        <a href="#nav" onclick="document.getElementById('nav').focus();" aria-label="Aller au menu">Aller au menu</a>
+        <a href="#filters-title" onclick="document.getElementById('filters-title').focus();" aria-label="Aller aux filtres">Aller aux filtres</a>
+        <a href="#results-title" onclick="document.getElementById('results-title').focus();" aria-label="Aller aux résultats">Aller aux résultats</a>
+        <a href="#focus-title" onclick="document.getElementById('focus-title').focus();" aria-label="Aller aux détails">Aller aux détails</a>
+    </div>
+    
     <!-- Menu Burger -->
     <div class="menu-burger" onclick="toggleMenu()">
         <div></div>
