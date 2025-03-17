@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail de recherche - CJUE</title>
+    <style>
+        /* Styles généraux pour la mise en page */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        /* Styles du header et du footer */
+        header, footer {
+            background: #C58F47;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        header h1, footer p {
+            color: black;
+        }
+        
+        /* Styles du menu de navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background: #f4f4f4;
+            padding: 10px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #C58F47;
+            font-weight: bold;
+        }
+        
+        /* Contenu principal avec 3 colonnes */
+        main {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        /* Styles pour les colonnes avec scrollbars */
+        .column {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            max-height: 80vh;
+            overflow-y: scroll;
+        }
+        
+        /* Barre de recherche */
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+        }
+        
+        /* Styles des résultats de recherche */
+        .card {
+            background: #f4f4f4;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        
+        /* Styles des onglets dans les détails */
+        .tabs {
+            display: flex;
+            gap: 10px;
+        }
+        .tab-content {
+            border-top: 2px solid #C58F47;
+            padding: 10px;
+        }
+        
+        /* Liens d'évitement pour la navigation rapide */
+        .fr-skiplinks {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: transparent;
+            padding: 5px;
+            z-index: 1000;
+        }
+        .fr-skiplinks a {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        .fr-skiplinks a:focus, .fr-skiplinks a:active {
+            position: static;
+            width: auto;
+            height: auto;
+            padding: 10px;
+            background: #000;
+            color: #fff;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Annonce ARIA pour informer du raccourci ALT+D -->
+    <div aria-live="polite" style="position: absolute; left: -9999px;">
+        Raccourci ALT + D pour accéder rapidement au menu d'évitement.
+    </div>
+    <!-- Menu d'évitement pour un accès rapide -->
+    <div class="fr-skiplinks" id="skip-links" tabindex="-1" aria-label="Accès rapide">
+        <a href="#search" onclick="document.getElementById('search').focus();">Aller à la recherche</a>
+        <a href="#nav" onclick="document.querySelector('#nav a').focus();">Aller au menu</a>
+        <a href="#filters-title" onclick="document.getElementById('filters-title').focus();">Aller aux filtres</a>
+        <a href="#results-title" onclick="document.getElementById('results-title').focus();">Aller aux résultats</a>
+        <a href="#focus-title" onclick="document.getElementById('focus-title').focus();">Aller aux détails</a>
+    </div>
+    
+    <!-- En-tête du site -->
+    <header>
+        <h1>Portail de recherche - CJUE</h1>
+        <input type="text" id="search" class="search-bar" placeholder="Rechercher une affaire...">
+    </header>
+    
+    <!-- Menu de navigation -->
+    <nav id="nav">
+        <a href="#">Accueil</a>
+        <a href="#">Jurisprudence</a>
+        <a href="#">Législation</a>
+        <a href="#">Décisions</a>
+    </nav>
+    
+    <!-- Sections principales -->
+    <main>
+        <!-- Section des filtres -->
+        <section id="filters" class="column">
+            <h2 id="filters-title" tabindex="0">Filtres</h2>
+            <input type="text" placeholder="Filtrer par année">
+            <input type="text" placeholder="Filtrer par type d'affaire">
+            <input type="text" placeholder="Filtrer par juridiction">
+            <input type="text" placeholder="Filtrer par mots-clés">
+            <input type="text" placeholder="Filtre supplémentaire 1">
+            <input type="text" placeholder="Filtre supplémentaire 2">
+            <input type="text" placeholder="Filtre supplémentaire 3">
+            <input type="text" placeholder="Filtre supplémentaire 4">
+            <h2 id="filters-title" tabindex="0">Filtres</h2>
+            <input type="text" placeholder="Filtrer par année">
+            <input type="text" placeholder="Filtrer par type d'affaire">
+            <input type="text" placeholder="Filtrer par juridiction">
+            <input type="text" placeholder="Filtrer par mots-clés">
+        </section>
+        
+        <!-- Section des résultats de recherche -->
+        <section id="results" class="column">
+            <h2 id="results-title" tabindex="0">Résultats de la recherche</h2>
+            <div class="card" tabindex="0">Affaire CJUE 123/24</div>
+            <div class="card" tabindex="0">Affaire CJUE 456/24</div>
+            <div class="card" tabindex="0">Affaire CJUE 789/24</div>
+            <div class="card" tabindex="0">Affaire CJUE 987/24</div>
+            <div class="card" tabindex="0">Affaire CJUE 654/24</div>
+            <div class="card" tabindex="0">Affaire CJUE 321/24</div>
+            <h2 id="results-title" tabindex="0">Résultats de la recherche</h2>
+            <div class="card" tabindex="0">Affaire CJUE 123/24</div>
+            <div class="card" tabindex="0">Affaire CJUE 456/24</div>
+            <div class="card" tabindex="0">Affaire CJUE 789/24</div>
+        </section>
+        
+        <!-- Section des détails de l'affaire -->
+        <section id="focus" class="column">
+            <h2 id="focus-title" tabindex="0">Détails de l'affaire</h2>
+            <div class="tabs">
+                <button onclick="showTab('tab1')">Onglet 1</button>
+                <button onclick="showTab('tab2')">Onglet 2</button>
+            </div>
+            <div id="tab1" class="tab-content" tabindex="0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Proin interdum metus eget ligula condimentum, eget malesuada odio scelerisque. Cras vehicula lacus ac turpis consequat, nec dictum nulla dapibus. Integer vel sem velit. Vivamus sagittis accumsan nisl, non hendrerit justo tincidunt non. Duis a semper nulla, in fringilla dolor. Suspendisse potenti. Etiam nec ex at metus sodales tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In scelerisque, nisl vel consequat elementum, nulla risus sollicitudin ligula, at efficitur felis mi ut lectus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.
+            </div>
+        </section>
+    </main>
+    
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2025 - CJUE</p>
+    </footer>
+    
+    <script>
+        // Raccourci clavier ALT+D pour revenir au menu d'évitement
+        document.addEventListener("keydown", function(event) {
+            if (event.altKey && event.key.toLowerCase() === "d") {
+                const firstSkipLink = document.querySelector(".fr-skiplinks a");
+                if (firstSkipLink) {
+                    firstSkipLink.focus();
+                    event.preventDefault();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
