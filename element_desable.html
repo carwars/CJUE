@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Bouton désactivé accessible</title>
+  <style>
+    .btn-disabled {
+      background-color: #E0E0E0;
+      color: #444444;
+      border: 1px solid #BDBDBD;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-family: sans-serif;
+      cursor: not-allowed;
+      position: relative;
+    }
+
+    .btn-disabled span {
+      pointer-events: none; /* C’est ici qu’on bloque le clic */
+      user-select: none;
+    }
+
+    .btn-disabled:hover {
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="btn-disabled" aria-disabled="true" tabindex="-1" title="Ce bouton est désactivé temporairement">
+    <span>Action désactivée</span>
+  </button>
+
+</body>
+</html>
